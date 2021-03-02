@@ -1,4 +1,4 @@
-# from decorators import cache_decorator
+from decorators import cache_decorator
 
 operations = {
     '+': lambda x, y: x + y,
@@ -8,6 +8,7 @@ operations = {
     '**': lambda x, y: x ** y,
 }
 
+@cache_decorator
 def calculator(a, b, operation):
     try:
         return operations[operation](a, b)
@@ -24,8 +25,9 @@ def read_int():
             print('Неверное целое число')
 
 if __name__ == '__main__':
-    a = read_int()
-    b = read_int()
-    operation = input('Введите операцию (+, -, /, *, **): ').strip()
+    while True:
+        a = read_int()
+        b = read_int()
+        operation = input('Введите операцию (+, -, /, *, **): ').strip()
 
-    print('Результат:', calculator(a, b, operation))
+        print('Результат:', calculator(a, b, operation))
