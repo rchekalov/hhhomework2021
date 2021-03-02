@@ -1,5 +1,7 @@
-# написать генераторную функцию, которая принимает число N возвращает N рандомных чисел от 1 до 100
-def gen(N):
-    pass
+import random
 
-# написать генераторное выражение, которое делает то же самое
+def gen(N):
+    for i in range(N):
+        yield random.randint(1, 100)
+
+g = (random.randint(1, 100) for _ in range(N))
