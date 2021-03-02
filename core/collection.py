@@ -37,10 +37,3 @@ def count_symbols(some_string):
   return dict(default)
   #return dict(Counter(some_string.replace(" ", "")))
 
-if __name__ == "__main__":
-  print(even(not_even_list))
-  print(get_ages(years_of_birth))
-  print(get_first_n_last(numbers))
-  print(get_list_without_repetition(list_with_repetition))
-  print(map_keys_and_values(keys, values))
-  print(count_symbols(s))
