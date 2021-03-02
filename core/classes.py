@@ -11,7 +11,7 @@ class CarIterator():
 
     def __init__(self, car_list):
         self.car_list = car_list
-        self.counter = -1
+        self.counter = - 1
 
     def __next__(self):
         while self.counter < len(self.car_list) - 1:
