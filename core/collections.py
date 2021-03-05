@@ -22,7 +22,7 @@ def get_list_without_repetition(some_list):
 keys = ['red', 'green', 'blue']
 values = ['#FF0000', '#00FF00', '#0000FF']
 def map_keys_and_values(some_keys, some_values):
-  return {some_keys[index]:some_values[index] for index in range(len(some_keys))}
+  return {key:value for key, value in zip(some_keys, some_values)}
 
 s = 'some string'
 def count_symbols(some_string):
