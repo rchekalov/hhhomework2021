@@ -26,6 +26,7 @@ def get_list_without_repetition(some_list):
 keys = ['red', 'green', 'blue']
 values = ['#FF0000', '#00FF00', '#0000FF']
 def map_keys_and_values(some_keys, some_values):
+  
   pass
 
 # Написать функцию, которая принимает строку и возвращает словарь состоящий из ключей - символов из строки, значений - количество повторений этих символов в строке
