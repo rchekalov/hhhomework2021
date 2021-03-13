@@ -1,5 +1,7 @@
-def cache_decorator():
-    # Реализовать декоратор который кэширует результаты вызова функции (есть в лекции)
-    # Применить для функции calculator (в calculator.py уже есть import функции cache_decorator)
-    # Настоятельно прошу написать декоратор руками, а не копировать, т.к. важно запомнить как это работает
-    pass
+def cache_decorator(func):
+  cache = {}
+  def inner(*args, **kwargs):
+    if args not in cache:
+      cache[args] = func(*args, **kwargs)
+    return cache[args]
+  return inner
