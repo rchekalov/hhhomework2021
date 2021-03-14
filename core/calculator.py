@@ -7,7 +7,7 @@ operations_enum = {
     '*': 3,
     '**': 4
 }
-
+@cache_decorator
 def calculator(a, b, operation):
     # Здесь нужно реализовать функцию,
     # которая реализует основные арифметические операции между числами: +, -, /, *, **.
@@ -18,6 +18,8 @@ def calculator(a, b, operation):
         elif operation == '-':
             return a - b
         elif operation == '/':
+            if b == 0:
+                raise Exception("operation {} not supported divided by zero".format(operation))
             return a / b
         elif operation == '*':
             return a * b
@@ -25,8 +27,8 @@ def calculator(a, b, operation):
             return a ** b
         else:
             raise Exception("operation {} not supported".format(operation))
-    except:
-        print()
+    except Exception:
+        print(Exception)
 
 def read_number(name = ""):
     while True:
@@ -50,5 +52,7 @@ if __name__ == '__main__':
     a = read_number("a")
     b = read_number("b")
     operation = read_operation()
-
-    print("Результат операции a {} b = ".format(operation), calculator(a, b, operation))
+    try:
+        print("Результат операции a {} b = ".format(operation), calculator(a, b, operation))
+    except Exception as ex:
+        print(ex)
