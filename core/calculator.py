@@ -29,7 +29,11 @@ def numInput():
             print('Некорректное значение')
 
 if __name__ == '__main__':
-    a = numInput() # Тут было бы неплохо обрабатывать ошибку в случае передачи некорректных символов
-    b = numInput()
-    operation = input('Введите операцию')
-    print('Результат: ', calculator(a, b, operation))
+    flag = 'да'
+    while flag=='да':
+        a = numInput() # Тут было бы неплохо обрабатывать ошибку в случае передачи некорректных символов
+        b = numInput()
+        operation = input('Введите операцию')
+        print('Результат: ', calculator(a, b, operation))
+        #print('Продолжаем? (да/нет)')
+        flag=str(input('Продолжаем? (да/нет): '))
