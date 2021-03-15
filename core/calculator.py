@@ -1,10 +1,27 @@
 from decorators import cache_decorator
 
+
 def calculator(a, b, operation):
     # Здесь нужно реализовать функцию,
     # которая реализует основные арифметические операции между числами: +, -, /, *, **.
     # Так же следует сделать проверку, что поступивший оператор корректен (присутствует в этом списке +, -, /, *, **)
-    return a + b
+    if operation not in ['+', '-', '/', '*', '**']:
+        return 'Некоректный оператор ' + operation
+
+    if operation == '+':
+        return a + b
+
+    if operation == '-':
+        return a - b
+
+    if operation == '/':
+        return a / b
+
+    if operation == '*':
+        return a * b
+
+    if operation == '**':
+        return a ** b
 
 
 if __name__ == '__main__':
@@ -13,3 +30,6 @@ if __name__ == '__main__':
     operation = input('Введите операцию')
 
     print('Результат: ', calculator(a, b, operation))
+
+    calculator_cached = cache_decorator(calculator)
+    print(calculator_cached(a, b, operation))
