@@ -30,3 +30,6 @@ if __name__ == '__main__':
     operation = input('Введите операцию')
 
     print('Результат: ', calculator(a, b, operation))
+
+    calculator_cached = cache_decorator(calculator)
+    print(calculator_cached(a, b, operation))
