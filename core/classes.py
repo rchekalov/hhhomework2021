@@ -1,11 +1,29 @@
 class Car:
-    # Реализовать класс машины Car, у которого есть поля: марка и модель автомобиля
-    # Поля должны задаваться через конструктор
-    pass
+    def __init__(self, brand=None, model=None):
+        self.brand = brand
+        self.model = model
+
 
 class Garage:
-    # Написать класс гаража Garage, у которого есть поле списка машин
-    # Поле должно задаваться через конструктор
-    # По аналогии с классом Company из лекции реализовать интерфейс итерируемого
-    # Реализовать методы add и delete(удалять по индексу) машин из гаража
-    pass
+    def __init__(self, cars=None):
+        self.cars = cars
+        if cars is None:
+            self.cars = []
+
+    def add(self, car):
+        self.cars.append(car)
+        return 'ok'
+
+    def delete(self, index):
+        if len(self.cars) != 0:
+            return self.cars.pop(index)
+
+    def __iter__(self):
+        self.cursor = -1
+        return self
+
+    def __next__(self):
+        if self.cursor + 1 >= len(self.cars):
+            raise StopIteration()
+        self.cursor += 1
+        return self.cars[self.cursor]
